@@ -1,0 +1,186 @@
+body {
+    display: grid;
+    grid-template-columns: auto 1000px auto;
+    grid-template-rows: 150px auto 150px;
+    grid-template-areas:
+        "gutter-l  header  gutter-r"
+        "gutter-l main gutter-r"
+        "gutter-l footer gutter-r"
+    ;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    background: rgba(222, 247, 255, 0.1);
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+header a {
+    text-decoration: none;
+    color: rgb(48, 47, 47);
+}
+
+header a:hover {
+    border-bottom: 2px solid darkslateblue;
+}
+
+.special-btn {
+    background: darkslateblue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.special-btn:hover {
+    background: #c770d8;
+    transform: translate();
+}
+
+main {
+    grid-area: main;
+    padding-right: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    background-image: url(./Assets/Illustration.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+main h4 {
+    background: darkslateblue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+main h4 a {
+    color: white;
+}
+
+main h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: darkslateblue;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
+
+form input {
+    padding: 8px 30px;
+    border: 1px solid rgba(222, 247, 255, 1);
+    border-radius: 5px;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+footer ul {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width:1000px) {
+    body {
+        grid-template-columns: 20px auto 20px;
+
+    }
+
+    header nav ul {
+        /* display: none; */
+        transform: translateX(100%);
+    }
+
+    header nav::before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-image: url(./Assets/Hamburger\ Menu.svg);
+    }
+
+    header nav:hover ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 50px;
+        transform: translatex(0);
+    }
+
+    header nav ul {
+        transition: all 300ms;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 40px;
+        color: white;
+
+    }
+
+    header nav a {
+        color: white;
+    }
+
+
+    main {
+        background-image: none;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    main h4 {
+        align-self: center;
+    }
+
+    main h1 {
+        font-size: 40px;
+    }
+
+    @media (max-width: 490px) {
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+        }
+
+        footer ul {
+            flex-wrap: wrap;
+        }
+
+        main {
+            margin-bottom: 30px;
+        }
+
+    }
+}
